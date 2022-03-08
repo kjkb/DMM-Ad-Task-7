@@ -12,7 +12,8 @@
     <div class='col-md-7 offset-md-1'>
           <h2>Books</h2>
           <%= render 'index', books: @books%>
-         
+          
+          <!--7日間の投稿数-->
           <h3>7日間分の投稿数</h3>
           <table class="table">
            <thead>
@@ -56,24 +57,22 @@
                     borderColor: "rgba(0,0,255,1)",
                     backgroundColor: "rgba(0,0,0,0)"
                           }
-                  ],
-                },
-                options: {
-                  title: {
-                    display: true,
-                    text: '7日間の投稿数の比較'
-                  },
+                        ],
+                      },
+                        options: {
+                          title: {
+                            display: true,
+                            text: '7日間の投稿数の比較'
+                          },
+                          responsive: true,
                   scales: {
-                    yAxes: [{
-                      ticks: {
-                        suggestedMax: 5,
-                        suggestedMin: 0,
-                        stepSize: 1,
-                        callback: function(value, index, values){
-                          return  value
-                        }
-                      }
-                    }]
+                    y:{
+                      suggestedMin: 0,
+                      suggestedMax: 10
+                    },
+                    x:{
+                      stacked: true
+                    },
                   },
                 }
               });
